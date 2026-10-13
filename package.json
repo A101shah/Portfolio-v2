@@ -1,0 +1,13 @@
+{
+  "name": "aarav-portfolio-v2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "An accessible, evidence-based portfolio for Aarav Shah.",
+  "scripts": {
+    "build": "python3 scripts/build.py",
+    "check": "python3 scripts/check.py && node --check dist/assets/app.js",
+    "dev": "python3 -m http.server 3000 --directory dist"
+  },
+  "author": "Aarav Shah",
+  "license": "UNLICENSED"
+}
