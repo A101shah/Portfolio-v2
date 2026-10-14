@@ -11,6 +11,7 @@
   let gl;
   try { gl = canvas.getContext('webgl', {alpha:true, antialias:true, powerPreference:'low-power'}); } catch (_) {}
   const fallback = () => {
+    if (window.startSoftwareSculpture?.(canvas)) return;
     stage.classList.remove('render-ready');
     canvas.hidden = true;
     status.textContent = 'Static sculpture · Interactive 3D is unavailable in this browser.';

@@ -41,6 +41,7 @@ python3 scripts/check.py
 node --check dist/assets/app.js
 node --check dist/assets/experience.js
 node --check dist/assets/sculpture.js
+node --check dist/assets/sculpture-fallback.js
 node scripts/check-interactions.cjs
 node scripts/check-sculpture.cjs
 ```
@@ -51,7 +52,7 @@ GitHub Pages uses **GitHub Actions** as its publishing source. Every push to `ma
 
 ## Accessibility and performance
 
-Content remains in static HTML. Without JavaScript, atlas notes are accessible through native disclosures. The 3D scene falls back to a CSS sculpture when WebGL is unavailable. Reduced-motion preference pauses automatic 3D rotation and disables reveal transitions. A pause control remains available to everyone. The animation loop stops when the scene is offscreen or the tab is hidden, and rendering resolution is capped at a 1.75 device pixel ratio. Touch interaction preserves vertical page scrolling.
+Content remains in static HTML. Without JavaScript, atlas notes are accessible through native disclosures. When WebGL is unavailable, a Canvas 2D renderer projects and shades the same 3D forms in software at a lower resolution, retaining all controls. A static CSS sculpture remains the final fallback. Reduced-motion preference pauses automatic 3D rotation and disables reveal transitions. A pause control remains available to everyone. The animation loop stops when the scene is offscreen or the tab is hidden, and rendering resolution is capped at a 1.75 device pixel ratio. Touch interaction preserves vertical page scrolling.
 
 Project dialogs use the native modal element, Escape dismissal, and focus restoration. Knowledge tabs support arrow keys, Home, and End. Search announces result counts. Focus rings, skip links, and semantic headings are included.
 

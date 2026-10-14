@@ -10,7 +10,7 @@ function setup(available=true){
  const canvas=node(),stage=node(),status=node(),pause=node(),reset=node(),controls=node();canvas.getContext=()=>available?gl:null;
  const shapes=['knot','sphere','torus'].map(shape=>Object.assign(node({shape}),{textContent:shape}));
  const document={hidden:false,getElementById:id=>({'hero-canvas':canvas,'render-stage':stage,'render-status':status,'motion-toggle':pause,'reset-view':reset}[id]),querySelectorAll:()=>shapes,querySelector:()=>controls,addEventListener(){}};
- const context={document,matchMedia:()=>({matches:true,addEventListener(){}}),devicePixelRatio:1,performance:{now:()=>0},requestAnimationFrame:()=>1,cancelAnimationFrame(){},IntersectionObserver:class{observe(){}},ResizeObserver:class{observe(){}},Float32Array,Uint16Array,Math};
+ const context={window:{},document,matchMedia:()=>({matches:true,addEventListener(){}}),devicePixelRatio:1,performance:{now:()=>0},requestAnimationFrame:()=>1,cancelAnimationFrame(){},IntersectionObserver:class{observe(){}},ResizeObserver:class{observe(){}},Float32Array,Uint16Array,Math};
  vm.runInNewContext(source,context);return {arrays,canvas,stage,status,shapes,controls};
 }
 const test=setup();

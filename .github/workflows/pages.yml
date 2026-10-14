@@ -26,6 +26,7 @@ jobs:
       - run: node --check dist/assets/app.js
       - run: node --check dist/assets/experience.js
       - run: node --check dist/assets/sculpture.js
+      - run: node --check dist/assets/sculpture-fallback.js
       - run: node scripts/check-sculpture.cjs
       - run: node scripts/check-interactions.cjs
       - uses: actions/upload-pages-artifact@v3

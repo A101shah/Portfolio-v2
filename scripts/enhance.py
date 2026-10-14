@@ -38,7 +38,7 @@ SKILLS='''<section class="knowledge-section section-shell" id="knowledge"><div c
 
 def enhance(page,case=None):
  depth='../' if case else ''
- page=page.replace('</head>',f'<link rel="stylesheet" href="{depth}assets/immersive.css"><script defer src="{depth}assets/projects.js"></script><script defer src="{depth}assets/experience.js"></script>'+('' if case else '<script defer src="assets/sculpture.js"></script>')+'</head>')
+ page=page.replace('</head>',f'<link rel="stylesheet" href="{depth}assets/immersive.css"><script defer src="{depth}assets/projects.js"></script><script defer src="{depth}assets/experience.js"></script>'+('' if case else '<script defer src="assets/sculpture-fallback.js"></script><script defer src="assets/sculpture.js"></script>')+'</head>')
  page=page.replace('<nav aria-label="Main navigation">','<nav aria-label="Main navigation">').replace('>Approach</a>', '>Atlas</a>').replace('href="'+(depth+'index.html' if case else '')+'#approach"','href="'+(depth+'index.html' if case else '')+'#atlas"')
  page=page.replace('<body>','<body><div class="reading-progress" aria-hidden="true"></div>')
  if not case:
@@ -48,7 +48,7 @@ def enhance(page,case=None):
   page=page.replace('Ideas put<br>into practice.','Beyond the render.<br>Inside the work.')
   page=page.replace('Three projects, three different problems.<br>Explore the decisions, source code,<br>and what I’m working to improve.','The problem. The decisions. The next iteration.<br>Three closer looks at how I build.')
   page=page.replace('My interests span machine learning, statistical reasoning, neural networks, and AI applications. I work across Python and web development to turn that learning into projects with inspectable source code.','My interests span machine learning, federated learning, computer vision, statistical reasoning, and generative AI. I work across Python, web development, and desktop applications to turn that learning into projects.')
-  page=page.replace('Have a problem<br>worth exploring','Let’s make<br>the next thing')
+  page=page.replace('Have a problem<br>worth exploring<span>?</span>','Let’s make<br>the next thing<span>.</span>')
  else:
   palettes={'jobtrack':('AI / APPLICATION SYSTEM','INPUT → CONTEXT → ACTION','CONCEPT RENDER'),'ipl-auction':('WEB / CONNECTED STATE','PLAYERS ↔ TEAMS ↔ BIDS','SYSTEM RENDER'),'statistical-toolkit':('DATA / STATISTICAL REASONING','SAMPLES → METHOD → INFERENCE','CONCEPT RENDER')}
   a,b,c=palettes[case]
