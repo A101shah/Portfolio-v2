@@ -1,5 +1,7 @@
 # Aarav Shah — Portfolio V2
 
+[View the portfolio](https://a101shah.github.io/Portfolio-v2/)
+
 An independent, responsive portfolio for a data science student at NMIMS. It introduces three projects through readable case studies with direct links to source evidence and clearly stated limitations.
 
 This repository is a separate redesign. It does not replace or modify the existing `A101shah/Portfolio` website.
@@ -38,15 +40,11 @@ node scripts/check-interactions.cjs
 
 Python 3 and Node.js are needed for the complete checks. `dist/` is the deployable website; the builder regenerates HTML while retaining its assets. Do not edit generated HTML unless you also update the builder.
 
-## Publish as a new GitHub Pages site
+## Deployment
 
-1. Create a new repository, such as `Portfolio-v2`, and push these files to its `main` branch.
-2. In the new repository, open **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-3. Run the **Validate and deploy portfolio** workflow (or push a new commit).
-4. Use the deployment URL returned by that workflow. For the proposed repository name under `A101shah`, the expected path is `https://a101shah.github.io/Portfolio-v2/`—this is not a claim that the URL is already live.
-5. Put the verified live URL in this README and the repository About field.
+GitHub Pages uses **GitHub Actions** as its publishing source. Each push to `main` runs the **Validate and deploy portfolio** workflow, validates the website, and publishes `dist/`. The workflow can also be run manually from the Actions tab.
 
-All internal links are relative, so the site supports GitHub Pages project subpaths. The separate `.openai/hosting.json` file configures the private comparison preview and is not needed by GitHub Pages.
+All internal links are relative, so the site supports GitHub Pages project subpaths. Keep Pages configured for GitHub Actions rather than deploying the repository root, which contains documentation instead of the website.
 
 ## Project evidence and content boundaries
 
