@@ -1,69 +1,70 @@
-# Aarav Shah — Portfolio V2
+# Aarav Shah — Interactive Portfolio
 
-[View the portfolio](https://a101shah.github.io/Portfolio-v2/)
+[Explore the live portfolio](https://a101shah.github.io/Portfolio-v2/)
 
-An independent, responsive portfolio for a data science student at NMIMS. It introduces three projects through readable case studies with direct links to source evidence and clearly stated limitations.
+An independent redesign of my portfolio: a real-time 3D sculpture, detailed project stories, and a searchable atlas of 13 projects across AI, data science, and software development. The original `A101shah/Portfolio` stays separate.
 
-This repository is a separate redesign. It does not replace or modify the existing `A101shah/Portfolio` website.
+## The experience
 
-## What is included
+- **Interactive 3D idea engine:** a custom WebGL renderer with a torus knot, rippling sphere, and torus. Drag or use arrow keys to rotate; pause motion or reset the view.
+- **Three featured stories:** JobTrack AI, IPL Auction, and Two-Sample t-Test, with decisions, source evidence, limitations, and next steps.
+- **Project atlas:** 13 owner-described projects, text search, category filters, accessible project-detail dialogs, and public source links where available.
+- **Knowledge explorer:** keyboard-operable tabs connecting AI, mathematics, and software systems to project work.
+- **Polished presentation:** dark/light themes, depth effects, scroll reveals, abstract case-study renders, and responsive layouts.
 
-- Static homepage with selected work, project filters, approach, about, skill evidence, and contact.
-- Dedicated case studies for JobTrack AI, IPL Auction, and the Two-Sample t-Test calculator.
-- Dark and light themes with a remembered preference.
-- Keyboard-accessible links and controls, skip navigation, reduced-motion handling, and responsive layouts.
-- Copy-email control with a failure fallback.
-- GitHub Pages workflow that validates the site before deployment.
-
-The core content is present in HTML and remains available without JavaScript. JavaScript only enhances theme selection, filtering, and email copying. Google Fonts are optional; system font fallbacks are provided.
+The WebGL scene is an abstract generative sculpture, not a trained neural network visualization. Project mockups and renders are explicitly illustrative. No fabricated model scores, deployment counts, testimonials, or skill percentages are presented.
 
 ## Run locally
 
-Python 3 is enough to serve the checked-in site:
+No package installation is needed. Python serves the built website:
 
 ```sh
 python3 -m http.server 3000 --directory dist
 ```
 
-Open `http://localhost:3000`. No npm dependency installation is required.
+Open `http://localhost:3000`.
 
 ## Edit and validate
 
-Edit content and page structure in `scripts/build.py`. Edit appearance in `dist/assets/style.css` and behaviors in `dist/assets/app.js`.
+- `scripts/build.py`: featured case-study content and base page structure.
+- `scripts/enhance.py`: immersive homepage, knowledge explorer, and the 13-project archive.
+- `dist/assets/immersive.css`: visual design and responsive layouts.
+- `dist/assets/sculpture.js`: WebGL geometry, lighting, orbit controls, and render lifecycle.
+- `dist/assets/experience.js`: atlas search, project dialogs, tabs, reveals, and reading progress.
+- `dist/assets/app.js`: shared theme, featured-project filters, and email-copy behavior.
+
+HTML and `dist/assets/projects.js` are generated. Edit their builders, then run:
 
 ```sh
 python3 scripts/build.py
 python3 scripts/check.py
 node --check dist/assets/app.js
+node --check dist/assets/experience.js
+node --check dist/assets/sculpture.js
 node scripts/check-interactions.cjs
+node scripts/check-sculpture.cjs
 ```
-
-Python 3 and Node.js are needed for the complete checks. `dist/` is the deployable website; the builder regenerates HTML while retaining its assets. Do not edit generated HTML unless you also update the builder.
 
 ## Deployment
 
-GitHub Pages uses **GitHub Actions** as its publishing source. Each push to `main` runs the **Validate and deploy portfolio** workflow, validates the website, and publishes `dist/`. The workflow can also be run manually from the Actions tab.
+GitHub Pages uses **GitHub Actions** as its publishing source. Every push to `main` validates the site and deploys `dist/`. The workflow can also be run manually. All internal paths work under the `/Portfolio-v2/` project subpath.
 
-All internal links are relative, so the site supports GitHub Pages project subpaths. Keep Pages configured for GitHub Actions rather than deploying the repository root, which contains documentation instead of the website.
+## Accessibility and performance
 
-## Project evidence and content boundaries
+Content remains in static HTML. Without JavaScript, atlas notes are accessible through native disclosures. The 3D scene falls back to a CSS sculpture when WebGL is unavailable. Reduced-motion preference pauses automatic 3D rotation and disables reveal transitions. A pause control remains available to everyone. The animation loop stops when the scene is offscreen or the tab is hidden, and rendering resolution is capped at a 1.75 device pixel ratio. Touch interaction preserves vertical page scrolling.
 
-Descriptions are based on the reviewed project source and documentation:
+Project dialogs use the native modal element, Escape dismissal, and focus restoration. Knowledge tabs support arrow keys, Home, and End. Search announces result counts. Focus rings, skip links, and semantic headings are included.
 
-| Project | Source | Portfolio framing |
-| --- | --- | --- |
-| JobTrack AI | https://github.com/A101shah/Job_Track_AI | AI-assisted application tracker; deterministic and model-assisted features distinguished |
-| IPL Auction | https://github.com/A101shah/ipl_auction | Flask/PostgreSQL auction application; no unsupported ML valuation claim |
-| Two-Sample t-Test | https://github.com/A101shah/2_sample_ttest_deployment | Learning prototype; current statistical implementation limitations disclosed |
+## Content and evidence
 
-The JobTrack product illustration uses synthetic data and is explicitly labeled. The hero plot is illustrative. No model accuracy, latency benchmark, user count, or hiring outcome is claimed. Linked project source was reviewed on 13 October 2026; check it again before updating these descriptions. No public project demo URL was verified.
+The expanded archive uses my original portfolio's project descriptions (reviewed October 2026). Public repository existence was checked for the supplied links. Four entries—Academic Intelligence, Prompt Architect, Neural Cypher, and the Blitzit-inspired Focus Suite—do not have verified public source URLs, so no fake demo or GitHub destination is provided.
 
-Contact details use the existing portfolio's centralized project data and README. Confirm them before promoting this redesign as the primary portfolio.
+Featured case studies retain the previous source review and disclose implementation limits. Broader archive descriptions are owner-provided summaries, not independent production audits. In particular, federated learning is not treated as proof of encryption or privacy, and an intended AWS architecture is not treated as a verified deployment.
 
 ## Verification scope
 
-Automated checks cover HTML structure, local links and fragments, assets, JavaScript syntax, theme behavior, project filtering, and clipboard behavior. They do not certify visual rendering, mobile browser behavior, contrast, external project correctness, or live project availability. Perform a browser review at desktop and mobile sizes before promotion.
+Automated checks cover HTML structure, internal links, assets, script syntax, shared controls, finite mesh coordinates and valid indices for all three geometries, keyboard-rotation handling, and the no-WebGL fallback. They do not replace device-specific accessibility, GPU, or mobile testing. Source projects themselves are separate from this portfolio and are not modified by it.
 
 ## License
 
-No open-source license is granted for this portfolio yet. The package is marked `UNLICENSED` pending the owner's choice. Linked projects retain their own licensing terms.
+No open-source license is granted yet. The package is `UNLICENSED` pending the owner's choice. Linked projects retain their own licensing terms.

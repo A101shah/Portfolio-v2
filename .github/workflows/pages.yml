@@ -24,6 +24,9 @@ jobs:
       - run: python3 scripts/build.py
       - run: python3 scripts/check.py
       - run: node --check dist/assets/app.js
+      - run: node --check dist/assets/experience.js
+      - run: node --check dist/assets/sculpture.js
+      - run: node scripts/check-sculpture.cjs
       - run: node scripts/check-interactions.cjs
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
