@@ -25,6 +25,7 @@ jobs:
       - run: python3 scripts/check.py
       - run: node --check dist/assets/app.js
       - run: node --check dist/assets/experience.js
+      - run: node --check dist/assets/editorial.js
       - run: node --check dist/assets/sculpture.js
       - run: node --check dist/assets/sculpture-fallback.js
       - run: node scripts/check-sculpture.cjs

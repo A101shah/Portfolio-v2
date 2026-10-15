@@ -4,6 +4,12 @@
 
 An independent redesign of my portfolio: a real-time 3D sculpture, detailed project stories, and a searchable atlas of 13 projects across AI, data science, and software development. The original `A101shah/Portfolio` stays separate.
 
+## Editorial refinement
+
+The latest design focuses on a clear visitor journey: a personal introduction, three selected stories in a contrasting project chapter, a progressively disclosed collection, and direct contact actions. Sticky navigation tracks the current section. Project cards use full-card hit areas, controls have larger touch targets, and case studies open with concise context, decision, and next-step summaries.
+
+`scripts/editorial.py` and `dist/assets/editorial.css` contain the editorial presentation layer. `dist/assets/editorial.js` handles navigation state. Search and category filters always reveal all matching projects; the unfiltered collection begins with six entries and expands on request.
+
 ## The experience
 
 - **Interactive 3D idea engine:** a custom WebGL renderer with a torus knot, rippling sphere, and torus. Drag or use arrow keys to rotate; pause motion or reset the view.
@@ -40,6 +46,7 @@ python3 scripts/build.py
 python3 scripts/check.py
 node --check dist/assets/app.js
 node --check dist/assets/experience.js
+node --check dist/assets/editorial.js
 node --check dist/assets/sculpture.js
 node --check dist/assets/sculpture-fallback.js
 node scripts/check-interactions.cjs
